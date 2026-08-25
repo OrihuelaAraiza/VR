@@ -1,0 +1,60 @@
+# Unity generated directories
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+tmp/
+
+# Unity generated project files
+*.csproj
+*.sln
+*.slnx
+*.unityproj
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity and native build artifacts
+*.apk
+*.aab
+*.ipa
+*.app
+*.xcarchive
+*.dSYM
+*.dSYM.zip
+*.symbols.zip
+sysinfo.txt
+
+# IDEs and editor state
+.idea/
+.vs/
+.vscode/
+.consulo/
+*.suo
+*.tmp
+*.user
+*.userosscache
+*.sln.docstates
+
+# macOS and filesystem metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Crash reports and local caches
+crashlytics-build.properties
+mono_crash.*

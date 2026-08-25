@@ -1,0 +1,17 @@
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/GAToUnityCallbacks.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/MacroEnd.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/MacroHeaderBegin.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/MacroSourceBegin.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGAApplication.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGAConfiguration.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGADebug.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGAEvents.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGAInput.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGASoftKeyboard.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGASoftKeyboardCallbacks.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGATypes.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UGAVersion.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UnityToGACallbacks.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UnityToGAConfigurationCallbacks.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UnityToGAKeyEventCallbacks.h
+/Users/JP/Desktop/UP/Especialidad/VR/Labo1/Labo1/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/UnityToGAMotionEventCallbacks.h
