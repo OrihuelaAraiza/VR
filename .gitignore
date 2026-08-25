@@ -8,6 +8,8 @@
 [Uu]ser[Ss]ettings/
 [Mm]emoryCaptures/
 [Rr]ecordings/
+.utmp/
+.gradle/
 tmp/
 
 # Unity generated project files

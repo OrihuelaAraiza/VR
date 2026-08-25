@@ -1,0 +1,21 @@
+# Unity YAML files intentionally serialize empty values with trailing spaces.
+*.meta text eol=lf whitespace=-trailing-space
+*.unity text eol=lf merge=unityyamlmerge whitespace=-trailing-space
+*.prefab text eol=lf merge=unityyamlmerge whitespace=-trailing-space
+*.asset text eol=lf merge=unityyamlmerge whitespace=-trailing-space
+*.mat text eol=lf merge=unityyamlmerge whitespace=-trailing-space
+*.wlt text eol=lf whitespace=-trailing-space
+*.inputactions text eol=lf whitespace=-trailing-space
+
+# Source and configuration files
+*.cs text eol=lf diff=csharp
+*.json text eol=lf
+*.md text eol=lf
+
+# Binary Unity assets
+*.fbx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.tga binary
+*.pdf binary
