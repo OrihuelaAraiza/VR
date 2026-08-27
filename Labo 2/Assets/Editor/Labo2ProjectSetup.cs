@@ -35,6 +35,7 @@ public static class Labo2ProjectSetup
     const string SphereMaterialPath = "Assets/Materials/EsferaARMaterial.mat";
     const string IOSBuildPath = "Builds/iOS/Labo2AR-iPad";
     const string ARKitSettingsPath = "Assets/XR/Settings/ARKitSettings.asset";
+    const string ARKitLoaderDefine = "UNITY_XR_ARKIT_LOADER_ENABLED";
     const string BundleIdentifier = "com.up.vr.labo2";
     const string DeveloperTeam = "8MBP94XP38";
     const float CubePrintedWidthMeters = 0.18f;
@@ -341,6 +342,8 @@ public static class Labo2ProjectSetup
 
     static void ConfigureARKitLoader()
     {
+        EnsureIOSDefine(ARKitLoaderDefine);
+
         var settingsPerTarget = AssetDatabase.FindAssets("t:XRGeneralSettingsPerBuildTarget")
             .Select(AssetDatabase.GUIDToAssetPath)
             .Select(AssetDatabase.LoadAssetAtPath<XRGeneralSettingsPerBuildTarget>)
@@ -388,6 +391,20 @@ public static class Labo2ProjectSetup
         arKitSettings.faceTracking = false;
         ARKitSettings.currentSettings = arKitSettings;
         EditorUtility.SetDirty(arKitSettings);
+    }
+
+    static void EnsureIOSDefine(string define)
+    {
+        var defines = PlayerSettings.GetScriptingDefineSymbols(NamedBuildTarget.iOS)
+            .Split(';', StringSplitOptions.RemoveEmptyEntries)
+            .ToHashSet(StringComparer.Ordinal);
+
+        if (!defines.Add(define))
+            return;
+
+        PlayerSettings.SetScriptingDefineSymbols(
+            NamedBuildTarget.iOS,
+            string.Join(";", defines.OrderBy(value => value, StringComparer.Ordinal)));
     }
 
     static void ConfigureIOSPlayer()
@@ -461,6 +478,10 @@ public static class Labo2ProjectSetup
         Require(PlayerSettings.GetGraphicsAPIs(BuildTarget.iOS).SequenceEqual(
                 new[] { GraphicsDeviceType.Metal }),
             "iOS debe usar Metal como única API gráfica.");
+        Require(PlayerSettings.GetScriptingDefineSymbols(NamedBuildTarget.iOS)
+                .Split(';', StringSplitOptions.RemoveEmptyEntries)
+                .Contains(ARKitLoaderDefine, StringComparer.Ordinal),
+            $"iOS debe incluir el símbolo {ARKitLoaderDefine} para enlazar el plugin nativo.");
 
         Debug.Log("Labo 2: validación completa superada (2 imágenes, 2 prefabs, iPad-only).");
     }
@@ -514,7 +535,35 @@ public static class Labo2ProjectSetup
                 $"y {report.summary.totalErrors} errores.");
         }
 
+        ValidateNativeARKitExport();
         Debug.Log($"Labo 2: proyecto Xcode para iPad listo en {Path.GetFullPath(IOSBuildPath)}.");
+    }
+
+    static void ValidateNativeARKitExport()
+    {
+        var archivePath = Directory.GetFiles(
+                IOSBuildPath,
+                "libUnityARKit.a",
+                SearchOption.AllDirectories)
+            .FirstOrDefault();
+        var bootstrapPath = Directory.GetFiles(
+                IOSBuildPath,
+                "UnityARKit.m",
+                SearchOption.AllDirectories)
+            .FirstOrDefault();
+
+        Require(!string.IsNullOrEmpty(archivePath),
+            "La exportación Xcode omitió libUnityARKit.a; ARKit no funcionaría en el iPad.");
+        Require(!string.IsNullOrEmpty(bootstrapPath),
+            "La exportación Xcode omitió UnityARKit.m; los subsistemas AR no podrían registrarse.");
+
+        var projectPath = Path.Combine(IOSBuildPath, "Unity-iPhone.xcodeproj", "project.pbxproj");
+        Require(File.Exists(projectPath), "La exportación no contiene el proyecto Xcode esperado.");
+
+        var projectText = File.ReadAllText(projectPath);
+        Require(projectText.Contains("libUnityARKit.a", StringComparison.Ordinal)
+                && projectText.Contains("UnityARKit.m in Sources", StringComparison.Ordinal),
+            "El proyecto Xcode no enlazó completamente el plugin nativo de ARKit.");
     }
 }
 
